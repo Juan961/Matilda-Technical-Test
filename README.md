@@ -22,8 +22,19 @@ Your challenge is to write a program to find the longest (and then steepest) pat
 
 ## 🤓 Solution
 
+The program starts by obtaining every possible position on the map. For each position, it looks in the directions of north, south, east, and west.
 
+For a new position (north, south, east, or west) to be considered valid, it must meet the following conditions:
 
+1. The direction of the new position cannot be the same as the direction I came from.
+2. The position cannot be an invalid location on the map.
+3. The elevation at the new position must be lower than the elevation of my current position.
+
+If all three conditions are met, the program starts searching for the next position. The search begins from the coordinates that satisfy the conditions. When a position cannot find a valid next step, it returns the current position along with any other paths that were found in the other directions.
+
+This process results in a complete path to a single position. Each time the program starts with a new position as the starting point in the matrix, it validates the length of the path to group the longest paths and discards the others.
+
+After obtaining all the possible longest paths, if there is more than one, the program validates the path that has the greatest vertical distance between its starting and ending points.
 
 ## 🚀 Run
 
